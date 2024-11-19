@@ -5,11 +5,17 @@
 
 body {
     background-color: #ABABAB;
+    overflow-x: hidden;
 }
 
+.negativeSpace {
+    width: 100%;
+    height: 50px;
+    background-color: #ABABAB;
+}
 .menu {
     width: 100%;
-    height: 120px;
+    height: 70px;
     background-color: #ABABAB;
     display: flex;
     flex-direction: column;
@@ -24,11 +30,10 @@ body {
     height: 70px;
     background-color: #fff;
     display: flex;
-
+    padding: 0 80px 0 80px;
 }
 
-.menu .menuInt .menuFirst {
-    list-style: none;
+/* .menu .menuInt .menuFirst {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,45 +43,69 @@ body {
     transition-delay: 0.2s;
     width: calc(50% - 225px);
     font-size: 1.5rem;
+} */
+.container-fluid {
+    background-color: white;
+    padding: 0;
 }
-
 .menu .menuInt .menuFirst .option {
-    text-decoration: none;
-    color: black;
-    height: 30px;
+    text-align: center;
+    font-size: 1rem;
 }
 .menu .menuInt .menuFirst .option li {
     font-size: 1rem;
 }
+.navbar-collapse {
+    justify-content: space-around;
+    width: 100%;
+}
 .menu .menuInt .menuSecond {
-    width: calc(50% - 225px);
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-direction: row;
 }
-
-.menu .menuInt .menuSecond .sale {
-    margin-right: 80px;
-}
-
-.menu .menuInt .menuSecond .sale .cart img {
+.menu .menuInt .menuSecond .sale img {
     width: 50px;
 }
-
+.menu .menuInt .menuSecond .login {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #FE9903;
+    margin-right: 20px;
+}
+.menu .menuInt .menuSecond .login .cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+.menu .menuInt .menuSecond .login img {
+    width: 25px;
+    filter: invert(1) brightness(2);
+}
 .menu .logo {
-    flex: 1;
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
     display: flex;
     justify-content: center;
     /* pointer-events: none; */
 }
+.menuFirst {
+    width: 50%;
+}
 
 .menu .logo .circle {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     background-color: #FE9903;
-    border-radius: 100%;
-    margin-top: -150px;
+    border-radius: 0 0 125px 125px;
+    margin-top: -134px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,9 +114,35 @@ body {
 
 .menu .logo .circle .logoIcon {
     width: 120px;
-    margin-top: 90px;
+    margin-top: 120px;
 }
-
+.overlay {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(25px);
+    position: fixed;
+    width: 0%;
+    height: 100vh;
+    transition: 0.5s ease;
+    opacity: 0;
+    z-index: 997;
+    cursor: pointer;
+}
+.loginArea {
+    position: fixed;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    transition: 0.5s ease;
+    z-index: 998;
+}
+.open {
+    right: 0;
+}
+.blur {
+    width: 100%;
+    opacity: 1;
+}
 .banners {
     width: calc(100% - 100px);
     /* height: 1480px; */
@@ -101,7 +156,7 @@ body {
 .banners .banner1 {
     width: calc(100% - 160px);
     height: 346px;
-    margin-top: 220px;
+    margin-top: 140px;
     background-image: url(../images/banner01.png);
     background-size: cover;
     background-position: right;
@@ -126,6 +181,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 200px;
 }
 
 .banners .banner1 .actBtn .arrow {
@@ -186,7 +242,7 @@ body {
 
 .banners .banner2 .containerCollection h2 {
     color: #fff;
-    font-weight: 700;
+    font-weight: 200;
     font-size: 2rem;
     margin-top: 10px;
     font-family: "Oswald", sans-serif;
@@ -249,7 +305,7 @@ body {
 
 .banners .banner3 .containerCollection h2 {
     color: #FE9903;
-    font-weight: 700;
+    font-weight: 200;
     font-size: 2rem;
     margin-top: 10px;
     font-family: "Oswald", sans-serif;
@@ -284,7 +340,8 @@ body {
     width: 100%;
     height: 230px;
     background-image: url(../images/backgroundadvantage.png);
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -534,7 +591,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    /* border-radius: 40px; */
+    border-radius: 40px;
     transition: 0.2s;
     box-shadow: 0px 0px 0px #ababab;
     margin-bottom: 20px;
@@ -551,7 +608,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border-radius: 20px; */
+    border-radius: 20px;
 }
 
 .products .product .photo .photoint {
@@ -656,4 +713,105 @@ body {
 
 .footer .inside .logo .circle img {
     width: 100px;
+}
+
+
+@media (max-width: 1380px) {
+    .banners .banner2 .containerCollection h1, .banners .banner2 .containerCollection h2, .banners .banner3 .containerCollection h1, .banners .banner3 .containerCollection h2, .banners .banner2 .actBtn, .banners .banner3 .actBtn {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+    .banners .banner1, .banners .banner2, .banners .banner3, .banners .banner2 .imgBanner2, .banners .banner3 .imgBanner3 {height: 264px;}
+    .banners .banner3 .containerCollection {height: auto;}
+    .banners .banner1 h1, .banners .banner2 .containerCollection h1,.banners .banner3 .containerCollection h1 {font-size: 3rem;}
+    .separation .containerCantages>div {width: 240px;}
+    .separation .containerCantages h1 {font-size: 1.1rem;}
+}
+@media (max-width: 1210px) {
+    .separation .containerCantages>div {width: 200px;}
+    .separation .containerCantages .icon {width: 50px;}
+    .bestSellers .call {width: 310px;}
+    .bestSellers .call h1{font-size: 2rem;}
+    .saleCall .call {display: none;}
+}
+@media (max-width: 1040px) {
+    .separation {height: 150px;}
+    .separation .containerCantages {height: 95px;}
+    .separation .containerCantages>div {width: 160px;}
+    .separation .containerCantages .icon {width: 30px;}
+    .separation .containerCantages h1 {font-size: 0.9rem; margin-bottom: 0;}
+    .bestSellers .call {width: 250px;}
+    .bestSellers .call h1 {font-size: 1.5rem;}
+}
+@media (max-width: 950px) {
+    .banners .banner1, .banners .banner2, .banners .banner3 {width: calc(100% - 50px);}
+    .banners .banner2 .containerCollection h1, .banners .banner2 .containerCollection h2, .banners .banner3 .containerCollection h1, .banners .banner3 .containerCollection h2, .banners .banner2 .actBtn, .banners .banner3 .actBtn {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    .banners .banner1, .banners .banner2, .banners .banner3, .banners .banner2 .imgBanner2, .banners .banner3 .imgBanner3 {height: 180px;}
+    .banners .banner1 h1, .banners .banner2 .containerCollection h1,.banners .banner3 .containerCollection h1 {font-size: 2rem;}
+    .banners .banner2 .containerCollection h2, .banners .banner3 .containerCollection h2 {font-size: 1.3rem;}
+    .banners .banner2 .containerCollection {width: 200px;}
+    .banners .banner2 .actBtn, .banners .banner3 .actBtn {width: auto;}
+    .banners .banner2 .actBtn .arrow, .banners .banner3 .actBtn .arrow {display: none;}
+    .banners .banner3 {margin-bottom: 10px;}
+    .menu .menuInt .menuSecond .sale {margin-right: 10px;}
+    .separation {height: 100px;}
+    .separation .containerCantages {width: calc(100% - 100px); height: 60px;}
+    .separation .containerCantages>div {width: 120px;}
+    .separation .containerCantages h1 {font-size: 0.7rem;}
+    .bestSellers .call{
+        bottom: 50px;
+        height: 50px;
+    }
+    .firtPurchase .callPurchase h1 {font-size: 5vw;}
+}
+@media (max-width: 680px) {
+    .banners .banner2 .containerCollection h1, .banners .banner2 .containerCollection h2, .banners .banner3 .containerCollection h1, .banners .banner3 .containerCollection h2, .banners .banner2 .actBtn, .banners .banner3 .actBtn {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .banners .banner1, .banners .banner2, .banners .banner3, .banners .banner2 .imgBanner2, .banners .banner3 .imgBanner3 {height: 110px;}
+    .banners .banner1 h1, .banners .banner2 .containerCollection h1,.banners .banner3 .containerCollection h1 {font-size: 1.3rem;}
+    .banners .banner2 .containerCollection h2, .banners .banner3 .containerCollection h2 {font-size: 1rem;}
+    .banners .banner1 h1, .banners .banner1 .actBtn {margin-left: 20px;}
+    .banners .banner1 .actBtn {margin-top: 10px;}
+    .banners .banner1 .actBtn, .banners .banner2 .actBtn, .banners .banner3 .actBtn {display: none;}
+    .banners .banner2, .banners .banner3 {margin-top: 15px;}
+    .banners .banner2 .containerCollection h2 {margin-bottom: 0;}
+    .menu .menuInt, .banners, .bestSellers, .firtPurchase .whitePart, .saleCall, .space, .footer .inside {width: calc(100% - 50px);}
+    .banners, .bestSellers, .firtPurchase .whitePart, .saleCall, .space, .space {margin: 0 25px}
+    .separation .containerCantages {width: calc(100% - 50px);}
+
+}
+@media (max-width: 550px) {
+    .separation .containerCantages>div {
+        width: 70px;
+        flex-direction: column;
+    }
+    .separation .containerCantages .icon {
+        width: 20px;
+        margin-bottom: 5px;
+    }
+    .separation .containerCantages h1 {
+        font-size: 0.5rem;
+        margin-left: 0;
+    }
+    .separation .containerCantages .vantageTxt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .bestSellers {height: 200px;}
+    .bestSellers .bestCall h1 {font-size: 3rem;}
+    .bestSellers .call{
+        height: 30px;
+        width: 170px;
+    }
+    .bestSellers .call h1 {
+        margin-bottom: 0;
+        margin-right: 10px;
+        font-size: 1rem;
+    }
 }
