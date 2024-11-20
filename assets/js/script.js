@@ -1,18 +1,4 @@
-const minhaDiv = document.getElementById("menu");
-const menuInt = document.querySelector(".menuInt");
-const divOffsetTop = minhaDiv.offsetTop;
-
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {
-        minhaDiv.style.backgroundColor = "white";
-    } else {
-        minhaDiv.style.backgroundColor = "#ABABAB";        
-    }
-});
-
 //login area
-
 const cartLinks = document.querySelectorAll('.loginCart');
 const loginArea = document.querySelector('.loginArea');
 const overLay = document.querySelector('.overlay');
